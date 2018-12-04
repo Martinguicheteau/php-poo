@@ -19,8 +19,10 @@ $person1->setLastname("Doe");
 
 var_dump($person1);
 
-//$Person2 = new Person();
+$person2 = new Person();
 //$Person2->firstname = "John";
 //$Person2->lastname = "Die";
+$person2->setFirstname("John");
+$person2->setLastname("Die");
 
-//var_dump($Person2);
+var_dump($person2);
