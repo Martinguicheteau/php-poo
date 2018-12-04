@@ -1,48 +1,25 @@
 <?php
-class  Person { 
-    private $firstname;
-    private $lastname;
+class Person{
+private $firstname;
+private $lastname;
 
-    public function setFirstname($pFirstname){
-        $this->firstname = $pFirstname;
-    }
+public function __construct($pFirstname, $pLastname){
+    $this->firstname = $pFirstname;
+    $this->lastname = $pLastname;
+}
 
-    public function getFirstname(){
-        return $this->firstname;
-    }
+public function speak(){
 
-    Public function setLastname($pLastname){
-        $this->lastname = $pLastname;
-    }
-
-    public function getLastname(){
-        return $this->lastname;
-    }
-    Public function speak(){
-        return "hello my name is " . $this->firstname . " " . $this->lastname;
+}
+}
+class Dog{
+    private $name;
+    public function __construct($pName){
+        $this->name = $pName;
     }
 }
 
-$person1 = new Person();
-//$Person1->firstname = "John";
-//$Person1->lastname = "Doe";
-
-
-$person1->setFirstname("John");
-$person1->setLastname("Doe");
-
-var_dump($person1->speak());
-//var_dump($person1);
-//var_dump($person1->getFirstname());
-//var_dump($person1->getLastname());
-
-$person2 = new Person();
-//$Person2->firstname = "Jane";
-//$Person2->lastname = "Die";
-$person2->setFirstname("Jane");
-$person2->setLastname("Die");
-
-var_dump($person2->speak());
-//var_dump($person2);
-//var_dump($person1->getFirstname());
-//var_dump($person1->getLastname());
+$person = new Person ("John", "Doe");
+var_dump($person);
+$name = new Dog ("Jhonny");
+var_dump($name);
