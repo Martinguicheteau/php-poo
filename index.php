@@ -36,10 +36,13 @@ var_dump($person1->speak());
 //var_dump($person1->getFirstname());
 //var_dump($person1->getLastname());
 
-//$person2 = new Person();
-//$Person2->firstname = "John";
+$person2 = new Person();
+//$Person2->firstname = "Jane";
 //$Person2->lastname = "Die";
-//$person2->setFirstname("John");
-//$person2->setLastname("Die");
+$person2->setFirstname("Jane");
+$person2->setLastname("Die");
 
+var_dump($person2->speak());
 //var_dump($person2);
+//var_dump($person1->getFirstname());
+//var_dump($person1->getLastname());
