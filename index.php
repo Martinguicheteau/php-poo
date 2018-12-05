@@ -1,57 +1,67 @@
 <?php
-class Person{
+abstract class animal{
+    private $years = 0;
+
+   
+    public function getYears(): int
+    {
+        return $this->years;
+    }
+
+   
+    public function setYears(int $years): void
+    {
+        $this->years = $years;
+    }
+
+    public function __construct($years)
+    {
+        $this->years = $years;
+    }
+
+}
+
+abstract class Mammal extends animal{
+}
+
+
+
+final class Person extends Mammal {
 private $firstname;
 private $lastname;
-private $dogs;
 
-public function __construct($pFirstname, $pLastname){
+public function __construct(string $pFirstname, string $pLastname, int $pYears) {
+    parent::__construct($pYears);
     $this->firstname = $pFirstname;
     $this->lastname = $pLastname;
 }
-
-public function getfirstname(){
-    return $this->firstname;
 }
-
-public function getlastname(){
-return $this->lastname;
-}
-
-public function speak(){
-    $string = "Je suis $this->firstname $this->lastname et mes chiens sont : ";
-    $listDogs = array();
-    foreach ($this->dogs as $dog) {
-        $listDogs[] = $dog->getName();
-    }
-    return $string . implode(', ', $listDogs);
-}
-public function buy($pDog){
-    $pDog->setOwner($this);
-    $this->dogs[] = $pDog;
-}
-}
-class Dog{
+final class Dog extends Mammal{
     private $name;
-    private $owner;
 
-    public function __construct($pName){
+    public function __construct(string $pName, int $pYears) {
+        parent::__construct($pYears);
         $this->name = $pName;
     }
-
-    public function getName(){
-        return $this->name;
-    }
-
-    public function setOwner($pOwner){
-        $this->owner = $pOwner;
-    }
-   public function speak(): string {
-       // return "Je suis ".$this->name." et mon maitre est ".$this->owner->getfirstname()." ".$this->owner->getlastname();
-   }
+    
 }
 
-$person = new Person ("John", "Doe");
-$dog = new Dog ("Jhonny");
-$person->buy($dog);
-var_dump($person->speak());
-//var_dump($dog->speak());
+abstract class oviparous extends animal{
+    private $isMoult;
+}
+
+final class gecko extends oviparous{
+    private $name;
+    public function __construct(string $pName, int $pYears) {
+        parent::__construct($pYears);
+        $this->name = $pName;
+    }
+}
+
+
+$person = new Person("John", "Doe", 1);
+var_dump($person);
+$dog = new Dog("bobby", 1);
+var_dump($dog);
+$gecko = new gecko("Robert", 1);
+var_dump($gecko);
